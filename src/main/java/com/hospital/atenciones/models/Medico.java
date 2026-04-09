@@ -26,8 +26,8 @@ public class Medico {
     private long medicoId;
 
     @Column(unique = true, nullable = false)
-    @NotBlank(message = "El campo rut no puede estar vacio")
-    @Pattern(regexp = "\\d{1,8}-[\\dKk]", message = "El formato del rut tiene que ser XXXXXXXX-X")
+    @NotBlank(message = "El campo run no puede estar vacio")
+    @Pattern(regexp = "\\d{1,8}-[\\dKk]", message = "El formato del run tiene que ser XXXXXXXX-X")
     private String run;
 
 
