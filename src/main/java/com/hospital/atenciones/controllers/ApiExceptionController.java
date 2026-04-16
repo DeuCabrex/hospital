@@ -1,5 +1,6 @@
 package com.hospital.atenciones.controllers;
 import com.hospital.atenciones.exceptions.MedicoException;
+import com.hospital.atenciones.exceptions.PacienteException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.text.ParseException;
 import java.util.HashMap;
 
 @RestControllerAdvice
@@ -23,9 +25,17 @@ public class ApiExceptionController {
     @ExceptionHandler(MedicoException.class)
     public ResponseEntity<?> handleMedicoException(MedicoException ex){
         HashMap<String, String> errors = new HashMap<>();
-        errors.put(ex.getMessage(), ex.getMessage());
+        errors.put("Error Medico", ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
     }
+
+    @ExceptionHandler(PacienteException.class)
+    public ResponseEntity<?> handlePacienteException(PacienteException ex){
+        HashMap<String, String> errors = new HashMap<>();
+        errors.put("Error Paciente", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errors);
+    }
+
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleException (MedicoException ex){

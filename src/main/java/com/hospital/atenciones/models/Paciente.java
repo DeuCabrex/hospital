@@ -50,7 +50,7 @@ public class Paciente {
     @Email(message = "El correo tiene que tener formato de correo")
     @NotBlank(message = "El correo no puede ser vacio")
     @Column(nullable = false, unique = true)
-    private LocalDate correoElectronico;
+    private String correoElectronico;
 
     @Embedded
     private Audit audit = new Audit();

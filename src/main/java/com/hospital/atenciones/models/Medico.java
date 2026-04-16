@@ -22,7 +22,7 @@ public class Medico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="Medico_id")
+    @Column(name="medico_id")
     private long medicoId;
 
     @Column(unique = true, nullable = false)

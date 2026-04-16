@@ -11,7 +11,7 @@ public interface PacienteRepository extends JpaRepository<Paciente, Long> {
 
     Optional<Paciente> findByRut(String rut);
 
-    Optional<Paciente> findByCorreo(String coreo);
+    Optional<Paciente> findByCorreo(String correo);
 
 
 }
